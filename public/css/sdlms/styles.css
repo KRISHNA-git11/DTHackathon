@@ -1,0 +1,443 @@
+@import url("//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400");
+
+html,
+body * {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+sdlms-eagle-renderer * {
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-webkit-user-select: none;
+	/* Safari */
+	-khtml-user-select: none;
+	/* Konqueror HTML */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	user-select: none;
+	/* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap {
+	overflow: scroll;
+	overflow-x: hidden;
+	height: calc(100% - 24px);
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap::-webkit-scrollbar {
+	height: 5px;
+	width: 4px;
+	background: #ccc;
+	/* Optional: just make scrollbar invisible */
+
+}
+
+sdlms-eagle-renderer [title-type="track"] {
+	display: flex;
+	justify-content: space-between;
+	font-size: 2.1rem;
+	font-weight: 400;
+
+}
+
+/* Optional: show position indicator in red */
+sdlms-eagle-renderer .sdlms-start-wrap::-webkit-scrollbar-thumb {
+	height: 5px;
+	width: 4px;
+	background: rgb(124, 124, 124);
+}
+
+sdlms-eagle-renderer {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	background-color: #111;
+	color: #000000;
+	font: 20px/24px "Yanone Kaffeesatz", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	padding: 5px 0;
+}
+
+sdlms-eagle-renderer {
+	z-index: 9;
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	text-align: center;
+	min-height: 300px;
+	min-width: 500px;
+	width: 25vw;
+	max-height: 98vh;
+	max-width: 600px;
+}
+
+sdlms-eagle-renderer .widget-move {
+	cursor: move;
+	position: sticky;
+	top: -5px;
+	z-index: 10;
+	background: #f1f1f1;
+}
+
+sdlms-eagle-renderer {
+	position: absolute;
+	overflow: auto;
+}
+
+sdlms-eagle-renderer-header {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #2196f3;
+	color: #fff;
+}
+
+
+sdlms-eagle-renderer .resizer-right {
+	width: 5px;
+	height: 100%;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: e-resize;
+}
+
+sdlms-eagle-renderer .resizer-bottom {
+	width: 100%;
+	height: 5px;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: n-resize;
+}
+
+sdlms-eagle-renderer .resizer-both {
+	width: 5px;
+	height: 5px;
+	background: transparent;
+	z-index: 10;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: nw-resize;
+}
+
+
+
+sdlms-eagle-renderer .sdlms-start-wrap ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap>ul>li>.sdlms-label-wrap {
+	margin: 1px 0;
+	background: #dadada;
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap>ul>li>.sdlms-label-wrap:hover {
+	background: #cdcdcd;
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap ul li ul li:not(:last-of-type) {
+	border-bottom: 1px dashed #ccc;
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap>ul>li>ul>li>.sdlms-label-wrap {
+	padding: 9px 0 9px 0px;
+	background: #fff;
+	cursor: pointer;
+}
+
+sdlms-eagle-renderer .sdlms-start-wrap>ul>li>ul>li>.sdlms-label-wrap:hover {
+	background: #f2f2f2;
+}
+
+sdlms-eagle-renderer .sdlms-item {
+	text-align: left;
+	position: relative;
+}
+
+sdlms-eagle-renderer .sdlms-label-wrap {
+	position: relative;
+}
+
+sdlms-eagle-renderer .sdlms-item .sdlms-track-tools {
+	position: absolute;
+	right: 20px;
+	display: none;
+	transition: 0.3s;
+	top: 50%;
+	transform: translate(50%, -50%);
+}
+
+sdlms-eagle-renderer .sdlms-item [track-seek] {
+	position: absolute;
+	z-index: 9;
+	bottom: 0;
+	height: 4px;
+	background-color: transparent;
+	width: 100%;
+	right: 0;
+	left: 0;
+}
+
+sdlms-eagle-renderer .sdlms-item [track-timer] {
+	position: absolute;
+	right: 60px;
+	z-index: 9;
+	top: 50%;
+	transform: translate(50%, -50%);
+}
+
+sdlms-eagle-renderer .sdlms-item [title-type="subtrack"] {
+	padding-right: 90px !important;
+}
+
+sdlms-eagle-renderer .sdlms-label-wrap:hover .sdlms-track-tools {
+	display: block;
+}
+
+sdlms-eagle-renderer .sdlms-item>.sdlms-label-wrap .sdlms-label-title {
+	cursor: pointer;
+}
+
+sdlms-eagle-renderer .sdlms-item>.sdlms-label-wrap .sdlms-label-icon {
+	cursor: pointer;
+	text-align: center;
+}
+
+sdlms-eagle-renderer .sdlms-item>.sdlms-label-wrap .sdlms-label-icon:before {
+	cursor: pointer;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+sdlms-eagle-renderer .sdlms-item>.sdlms-label-wrap .sdlms-label-tools a {
+	color: #9e9e9e;
+}
+
+sdlms-eagle-renderer .sdlms-item>.sdlms-label-wrap .sdlms-label-tools a:hover {
+	color: #858585;
+}
+
+sdlms-eagle-renderer .sdlms-item:not(.sdlms-item-open)>ul {
+	display: none;
+}
+
+
+sdlms-eagle-renderer .sdlms-label-wrap {
+	display: grid;
+}
+
+sdlms-eagle-renderer .sdlms-label-wrap .sdlms-label-title {
+	order: 1;
+	flex: 1 1 auto;
+	padding: 4px 7px 4px 7px;
+	align-self: auto;
+	align-items: center;
+}
+
+sdlms-eagle-renderer .sdlms-label-wrap .sdlms-label-icon {
+	order: 0;
+	flex: 0 1 1.5em;
+	align-self: auto;
+}
+
+sdlms-eagle-renderer .sdlms-label-wrap .sdlms-label-tools {
+	order: 2;
+	flex: 0 1 auto;
+	align-self: auto;
+	white-space: nowrap;
+	padding: 0 10px;
+}
+
+sdlms-eagle-renderer .sdlms-transition {
+	padding: 0.25rem;
+}
+
+sdlms-eagle-renderer .sdlms-transition {
+	background-color: transparent;
+}
+
+sdlms-eagle-renderer .sdlms-active .sdlms-label-wrap {
+	background: #f2f2f2 !important;
+}
+
+sdlms-eagle-renderer [track-completed] {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+sdlms-eagle-builder {
+	border: 2px dashed #ccc;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	/* max-width: 50vw; */
+	position: relative;
+}
+
+sdlms-eagle-builder .sldms-form-input {
+	width: 100%;
+	border: 1px solid #ccc;
+	font-weight: 500;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.2rem;
+}
+
+sdlms-eagle-builder ::placeholder {
+	font-weight: 300;
+}
+
+sdlms-eagle-builder .sldms-form-input:focus {
+	border: 1px solid #2196f3;
+	outline: none;
+}
+
+sdlms-eagle-builder .input-with-time {
+	display: flex;
+	margin: 0.5rem 0;
+}
+
+sdlms-eagle-builder .input-with-time input[type="number"] {
+	width: 20%;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: none;
+}
+
+sdlms-eagle-builder .input-with-time input:not([type="number"]) {
+	width: 80%;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+sdlms-eagle-builder .input-with-time.sdlms-thread-with-action input:not([type="number"]) {
+	width: 70%;
+	border: 0;
+
+}
+
+sdlms-eagle-builder .sdlms-thread-with-action .sdlms-thread-action {
+	width: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	border-left: none;
+	border-radius: 0.2rem;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	cursor: pointer;
+	background: #f2f2f2;
+}
+
+sdlms-eagle-builder .sdlms-thread-with-action .input-with-time input[type="number"] {
+	border-radius: 0;
+}
+
+sdlms-eagle-builder .sdlms-form-thread {
+	padding: 0.75rem 0 0.4rem 0;
+}
+
+sdlms-eagle-builder .sdlms-form-thread+hr {
+
+	border-style: dashed;
+	border-color: #d3d3d3;
+}
+
+sdlms-eagle-builder * {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	color: #000000;
+	font: 20px/24px "Yanone Kaffeesatz", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
+
+sdlms-eagle-builder .sdlms-form-add-more-thread {
+	display: none;
+	justify-content: flex-end;
+
+}
+
+sdlms-eagle-builder .sdlms-form-add-more-thread span {
+	cursor: pointer;
+	margin-left: 1rem;
+}
+
+sdlms-eagle-builder .sdlms-form-thread:hover .sdlms-form-add-more-thread {
+	display: flex;
+}
+
+sdlms-eagle-builder .sdlms-form-action {
+	display: flex;
+	justify-content: flex-end;
+}
+
+sdlms-eagle-builder .sldms-button {
+	min-width: 75px;
+	padding: 0.6rem 0.75rem 0.5rem 0.7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	font-size: 1.1rem;
+	border-radius: 0.3rem;
+	background: blue;
+	color: white;
+	border: 1px solid currentColor;
+	cursor: pointer;
+	outline: none;
+
+}
+
+sdlms-eagle-builder .sdlms-thread-container {
+	overflow: hidden;
+	overflow-y: auto;
+	max-height: calc(100vh - 75px);
+	padding: 0 1rem 1rem;
+}
+
+sdlms-eagle-builder .sdlms-thread-container::-webkit-scrollbar {
+	height: 5px;
+	width: 4px;
+	background: #ccc;
+	/* Optional: just make scrollbar invisible */
+
+}
+
+sdlms-eagle-builder .sdlms-form-title {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 0.75rem;
+	align-items: center;
+}
+
+sdlms-eagle-builder .sdlms-form-title h2 {
+	font-weight: 500;
+	font-size: 1.8rem;
+}
+
+sdlms-eagle-builder form.sdlms-form-validated input:invalid {
+	border-color: red;
+}
+
+.no-control i {
+	pointer-events: none !important;
+}
+
+sdlms-eagle-builder .no-control i {
+	pointer-events: none !important;
+}

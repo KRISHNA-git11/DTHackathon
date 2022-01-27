@@ -1,0 +1,16 @@
+Student widget make it small [pop it like onesignal]
+Make Student  widget Creation to left
+and dock reactions to right;
+Give Edit permission while comapring widget if author is same viewer
+Quiz modes:
+    Answer mode [when another is viewing];
+    View Mode [when creater is seeing + Preview Mode];
+    Edit mode [Preview Mode + sequence mode];
+    Collapse Mode for Preview Mode;
+
+Session Timer ==> 
+    Play,pause,stop
+
+
+
+
